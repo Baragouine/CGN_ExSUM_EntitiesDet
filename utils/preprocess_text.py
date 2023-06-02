@@ -21,7 +21,10 @@ def preprocess_text(text, glovemgr, labels_ner = None, is_sep_n = False, remove_
 
     for y in range(len(labels_ner)):
       for x in range(len(labels_ner[y])):
-        tmp_labels_ner[tokenized_flat_contents[y][x]] = (0 if labels_ner[y][x] == 0 else 1)
+        if tokenized_flat_contents[y][x] in tmp_labels_ner[tokenized_flat_contents[y][x]]:
+          tmp_labels_ner[tokenized_flat_contents[y][x]] = tmp_labels_ner[tokenized_flat_contents[y][x]] or (0 if labels_ner[y][x] == 0 else 1)
+        else:
+          tmp_labels_ner[tokenized_flat_contents[y][x]] = tmp_labels_ner[tokenized_flat_contents[y][x]] or (0 if labels_ner[y][x] == 0 else 1)
   
     labels_ner = tmp_labels_ner
 
