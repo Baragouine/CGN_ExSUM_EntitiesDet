@@ -1,3 +1,4 @@
+# create_graph_dataset
 # %%
 from torch_geometric.data import Dataset, Data
 import torch
@@ -5,9 +6,9 @@ import pandas as pd
 import argparse
 import re
 
-from utils.GloveMgr import GloveMgr
-from utils.preprocess_text import preprocess_text
-from utils.preprocess_df import preprocess_df
+from .GloveMgr import GloveMgr
+from .preprocess_text import preprocess_text
+from .preprocess_df import preprocess_df
 
 # %%
 # Parse args if script mode
@@ -15,7 +16,7 @@ def create_graph(doc, tfidf_sent, glovemgr, pad_sent, word_blacklist = [], remov
   words = list(set([id for line in doc for id in line if glovemgr.i2w(id) not in word_blacklist]))
   sents = doc
 
-  # remove unknown word
+  # remove unknown word and padding
   if remove_unkn_words:
     words = [w for w in words if w != 1 and w != 0]
     sents = [[w for w in sent if w != 1 and w != 0] for sent in sents]
@@ -75,6 +76,9 @@ class GraphDataset:#(Dataset):
     return self.dataset[index]
 
 #%%
+
+
+#%%
 def create_graph_dataset(df, tfidfs_sent, glovemgr, word_blacklist = [], remove_unkn_words = False, self_loop=False, doc_column_name="docs", labels_sum_column_name="labels_sum", labels_ner_column_name=None, is_sep_n=False, remove_stop_word = True, stemming=True, trunc_sent=-1, padding_sent=-1, trunc_doc=-1):
   res = []
 
@@ -86,14 +90,13 @@ def create_graph_dataset(df, tfidfs_sent, glovemgr, word_blacklist = [], remove_
     idx = df[i]["idx"]
     docs = create_graph(df[i]["docs"], tfidfs_sent["tfidf"][idx], word_blacklist=word_blacklist, remove_unkn_words=remove_unkn_words, self_loop=self_loop, pad_sent=max_sent_len, glovemgr=glovemgr)
 
-    if labels_ner_column_name is not None:  
+    if labels_ner_column_name is not None:
       labels_ner = []
       for idw in docs.x[0]:
         w = glovemgr.i2w(idw)
-        if w in df[i]["labels_ner"]:
-          labels_ner.append(df[i]["labels_ner"][w])
-        else:
-          labels_ner.append(0)  
+        for y in range(docs.x[1].shape[0]):
+          if w in df[i]["labels_ner"][y]:
+            labels_ner.append(df[i]["labels_ner"][y][w])
       
       res.append({"idx": idx, "doc_lens": len(df[i]["docs"]), "docs": docs, "labels_sum": df[i]["labels_sum"], "labels_ner": labels_ner})
     else:

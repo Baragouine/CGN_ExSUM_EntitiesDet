@@ -18,14 +18,19 @@ def preprocess_text(text, glovemgr, labels_ner = None, is_sep_n = False, remove_
   if labels_ner is not None:
     tokenized_flat_contents = tokenize_text(text)
     tokenized_flat_contents = [[glovemgr.i2w(glovemgr.w2i(word)) for word in line] for line in tokenized_flat_contents]
-    tmp_labels_ner = dict()
+    tmp_labels_ner = [dict() for _ in range(len(labels_ner))]
 
     for y in range(len(labels_ner)):
-      for x in range(len(labels_ner[y])):
-        if tokenized_flat_contents[y][x] in tmp_labels_ner:
-          tmp_labels_ner[tokenized_flat_contents[y][x]] = tmp_labels_ner[tokenized_flat_contents[y][x]] or (0 if labels_ner[y][x] == 0 else 1)
+      n_x = len(labels_ner[y])
+
+      if trunc_sent >= 0 and n_x > trunc_sent:
+        n_x = trunc_sent
+
+      for x in range(n_x):
+        if tokenized_flat_contents[y][x] in tmp_labels_ner[y]:
+          tmp_labels_ner[y][tokenized_flat_contents[y][x]] = tmp_labels_ner[y][tokenized_flat_contents[y][x]] or (0 if labels_ner[y][x] == 0 else 1)
         else:
-          tmp_labels_ner[tokenized_flat_contents[y][x]] = (0 if labels_ner[y][x] == 0 else 1)
+          tmp_labels_ner[y][tokenized_flat_contents[y][x]] = (0 if labels_ner[y][x] == 0 else 1)
   
     labels_ner = tmp_labels_ner
 
