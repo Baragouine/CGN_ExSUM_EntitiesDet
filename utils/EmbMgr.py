@@ -4,8 +4,8 @@
 import numpy as np
 
 # Manage embedding and conversion between word and index
-class GloveMgr():
-    def __init__(self, fname, vocab_size=-1):
+class EmbMgr():
+    def __init__(self, fname, vocab_size=-1, header=False):
         vocab,embeddings = [],[]
 
         with open(fname,'rt') as fi:
@@ -14,7 +14,7 @@ class GloveMgr():
         if vocab_size < 0:
             vocab_size = len(full_content)
 
-        for i in range(min(vocab_size, len(full_content))):
+        for i in range(1 if header else 0, min(vocab_size, len(full_content))):
             i_word = full_content[i].split(' ')[0]
             i_embeddings = [float(val) for val in full_content[i].split(' ')[1:]]
             vocab.append(i_word)
