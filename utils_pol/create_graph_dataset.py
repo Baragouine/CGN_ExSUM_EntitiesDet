@@ -90,6 +90,9 @@ def create_graph_dataset(df, tfidfs_sent, glovemgr, word_blacklist = [], remove_
     idx = df[i]["idx"]
     docs = create_graph(df[i]["docs"], tfidfs_sent["tfidf"][idx], word_blacklist=word_blacklist, remove_unkn_words=remove_unkn_words, self_loop=self_loop, pad_sent=max_sent_len, glovemgr=glovemgr)
 
+    if len(docs.x[0]) == 0 or len(docs.x[1]) == 0:
+      continue
+
     if labels_ner_column_name is not None:
       labels_ner = []
       for idw in docs.x[0]:
