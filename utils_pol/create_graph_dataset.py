@@ -6,14 +6,14 @@ import pandas as pd
 import argparse
 import re
 
-from .GloveMgr import GloveMgr
+from .EmbMgr import EmbMgr
 from .preprocess_text import preprocess_text
 from .preprocess_df import preprocess_df
 
 # %%
 # Parse args if script mode
-def create_graph(doc, tfidf_sent, glovemgr, pad_sent, word_blacklist = [], remove_unkn_words = False, self_loop=False):
-  words = list(set([id for line in doc for id in line if glovemgr.i2w(id) not in word_blacklist]))
+def create_graph(doc, tfidf_sent, embmgr, pad_sent, word_blacklist = [], remove_unkn_words = False, self_loop=False):
+  words = list(set([id for line in doc for id in line if embmgr.i2w(id) not in word_blacklist]))
   sents = doc
 
   # remove unknown word and padding
@@ -34,7 +34,7 @@ def create_graph(doc, tfidf_sent, glovemgr, pad_sent, word_blacklist = [], remov
           edge_index_dst.append(w)
           edge_index_src.append(w)
           edge_index_dst.append(len(words) + s)
-          target_word = glovemgr.i2w(words[w])
+          target_word = embmgr.i2w(words[w])
           if target_word in tfidf_sent:
             edge_attr.append(tfidf_sent[s][w])
             edge_attr.append(tfidf_sent[s][w])
@@ -79,16 +79,16 @@ class GraphDataset:#(Dataset):
 
 
 #%%
-def create_graph_dataset(df, tfidfs_sent, glovemgr, word_blacklist = [], remove_unkn_words = False, self_loop=False, doc_column_name="docs", labels_sum_column_name="labels_sum", labels_ner_column_name=None, is_sep_n=False, remove_stop_word = True, stemming=True, trunc_sent=-1, padding_sent=-1, trunc_doc=-1):
+def create_graph_dataset(df, tfidfs_sent, embmgr, word_blacklist = [], remove_unkn_words = False, self_loop=False, doc_column_name="docs", labels_sum_column_name="labels_sum", labels_ner_column_name=None, is_sep_n=False, remove_stop_word = True, stemming=True, trunc_sent=-1, padding_sent=-1, trunc_doc=-1):
   res = []
 
-  df = preprocess_df(df=df, glovemgr=glovemgr, doc_column_name=doc_column_name, labels_sum_column_name=labels_sum_column_name, labels_ner_column_name=labels_ner_column_name, is_sep_n = is_sep_n, remove_stop_word = remove_stop_word, stemming=stemming, trunc_sent=trunc_sent, padding_sent=padding_sent, trunc_doc=trunc_doc)
+  df = preprocess_df(df=df, embmgr=embmgr, doc_column_name=doc_column_name, labels_sum_column_name=labels_sum_column_name, labels_ner_column_name=labels_ner_column_name, is_sep_n = is_sep_n, remove_stop_word = remove_stop_word, stemming=stemming, trunc_sent=trunc_sent, padding_sent=padding_sent, trunc_doc=trunc_doc)
   
   max_sent_len = max([len(s) for t in df for s in t["docs"]])
 
   for i in range(len(df)):
     idx = df[i]["idx"]
-    docs = create_graph(df[i]["docs"], tfidfs_sent["tfidf"][idx], word_blacklist=word_blacklist, remove_unkn_words=remove_unkn_words, self_loop=self_loop, pad_sent=max_sent_len, glovemgr=glovemgr)
+    docs = create_graph(df[i]["docs"], tfidfs_sent["tfidf"][idx], word_blacklist=word_blacklist, remove_unkn_words=remove_unkn_words, self_loop=self_loop, pad_sent=max_sent_len, embmgr=embmgr)
 
     if len(docs.x[0]) == 0 or len(docs.x[1]) == 0:
       continue
@@ -96,7 +96,7 @@ def create_graph_dataset(df, tfidfs_sent, glovemgr, word_blacklist = [], remove_
     if labels_ner_column_name is not None:
       labels_ner = []
       for idw in docs.x[0]:
-        w = glovemgr.i2w(idw)
+        w = embmgr.i2w(idw)
         for y in range(docs.x[1].shape[0]):
           if w in df[i]["labels_ner"][y]:
             labels_ner.append(df[i]["labels_ner"][y][w])

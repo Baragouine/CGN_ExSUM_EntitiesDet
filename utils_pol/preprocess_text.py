@@ -13,11 +13,11 @@ import nltk
 from .tokenize_text import tokenize_text
 
 # Preprocess a text
-def preprocess_text(text, glovemgr, labels_ner = None, is_sep_n = False, remove_stop_word = False, stemming=False, trunc_sent=-1, padding_sent=-1):
+def preprocess_text(text, embmgr, labels_ner = None, is_sep_n = False, remove_stop_word = False, stemming=False, trunc_sent=-1, padding_sent=-1):
   # preprocess ner labels
   if labels_ner is not None:
     tokenized_flat_contents = tokenize_text(text)
-    tokenized_flat_contents = [[glovemgr.i2w(glovemgr.w2i(word)) for word in line] for line in tokenized_flat_contents]
+    tokenized_flat_contents = [[embmgr.i2w(embmgr.w2i(word)) for word in line] for line in tokenized_flat_contents]
     tmp_labels_ner = [dict() for _ in range(len(labels_ner))]
 
     for y in range(len(labels_ner)):
@@ -42,7 +42,7 @@ def preprocess_text(text, glovemgr, labels_ner = None, is_sep_n = False, remove_
     result = [line if len(line) <= trunc_sent else line[:trunc_sent] for line in result]
 
   # word2id
-  result = [[glovemgr.w2i(word) for word in line] for line in result]
+  result = [[embmgr.w2i(word) for word in line] for line in result]
 
   # padding
   if padding_sent >= 0:
