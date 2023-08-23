@@ -7,9 +7,19 @@ import numpy as np
 class EmbMgr():
     def __init__(self, fname, vocab_size=-1, header=False):
         vocab,embeddings = [],[]
+        full_content = []
 
-        with open(fname,'rt') as fi:
-            full_content = fi.read().strip().split('\n')
+        if vocab_size >= 0:
+            n = (1 if header else 0) + vocab_size
+            with open(fname,'rt') as fi:
+                for _ in range(n):
+                    line = fi.readline()
+                    if not line:
+                        break
+                    full_content.append(line)
+        else:
+            with open(fname,'rt') as fi:
+                full_content = fi.read().strip().split('\n')
 
         if vocab_size < 0:
             vocab_size = len(full_content)
