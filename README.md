@@ -52,3 +52,9 @@ To install nltk data:
   - Run ```python scripts/compute_tfidf_dataset.py -input data/wiki_geo_high_25.json -output data/wiki_geo_high_25_dataset_tfidf.json``` (compute tfidfs for whole dataset).
   - Run ```python scripts/compute_tfidf_sent_dataset.py -input data/wiki_geo_high_25.json -output data/wiki_geo_high_25_sent_tfidf.json``` (compute tfidfs for each document).
 
+tfidfs computing is only necessary for HeterSUMGraph based models.
+
+
+
+
+
