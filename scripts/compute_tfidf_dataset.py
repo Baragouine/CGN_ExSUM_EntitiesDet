@@ -2,8 +2,6 @@
 from sklearn.feature_extraction.text import TfidfVectorizer
 import pandas as pd
 import argparse
-import re
-from nltk.tokenize import LineTokenizer, sent_tokenize, word_tokenize
 import json
 
 # %%

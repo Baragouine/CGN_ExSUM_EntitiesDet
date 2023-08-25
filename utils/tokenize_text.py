@@ -5,7 +5,7 @@
 import string
 from nltk.tokenize import LineTokenizer, sent_tokenize, word_tokenize
 from nltk.corpus import stopwords
-from nltk.stem.porter import PorterStemmer
+from nltk.stem.snowball import FrenchStemmer
 import nltk
 # Run the below line only the first time of running nltk
 # nltk.download()
@@ -19,7 +19,7 @@ def tokenize_text(text, is_sep_n = False, remove_stop_word = False, stemming=Fal
     nltk_line_tokenizer = LineTokenizer()
     result = nltk_line_tokenizer.tokenize(result)
   else:
-    result = sent_tokenize(result)
+    result = sent_tokenize(result, language="french")
 
   # lower
   result = [line.lower() for line in result]
@@ -28,16 +28,16 @@ def tokenize_text(text, is_sep_n = False, remove_stop_word = False, stemming=Fal
   result = ["".join([char for char in line if char not in string.punctuation]) for line in result]
 
   # Tokenization
-  result = [word_tokenize(line) for line in result]
+  result = [word_tokenize(line, language="french") for line in result]
 
   # Remove stop word
   if remove_stop_word:
-    stop_words = stopwords.words('english')
+    stop_words = stopwords.words('french')
     result = [[word for word in line if word not in stop_words] for line in result]
 
   # Stemming
   if stemming:
-    porter = PorterStemmer()
+    porter = FrenchStemmer()
     result = [[porter.stem(word) for word in line] for line in result]
 
   return result

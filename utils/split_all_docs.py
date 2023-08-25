@@ -9,7 +9,7 @@ def split_doc(doc, is_sep_n = False):
     nltk_line_tokenizer = LineTokenizer()
     result = nltk_line_tokenizer.tokenize(result)
   else:
-    result = sent_tokenize(result)
+    result = sent_tokenize(result, language="french")
 
   # lower
   result = [line.lower() for line in result]

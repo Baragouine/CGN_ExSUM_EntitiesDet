@@ -1,23 +1,14 @@
 # URLs:
 # * preprocessing 1 : https://towardsdatascience.com/nlp-preprocessing-with-nltk-3c04ee00edc0
 # * preprocessing 2 : https://www.nltk.org/api/nltk.tokenize.html
-
-import string
-from nltk.tokenize import LineTokenizer, sent_tokenize, word_tokenize
-from nltk.corpus import stopwords
-from nltk.stem.porter import PorterStemmer
-import nltk
-# Run the below line only the first time of running nltk
-# nltk.download()
-
 from .tokenize_text import tokenize_text
 
 # Preprocess a text
-def preprocess_text(text, glovemgr, labels_ner = None, is_sep_n = False, remove_stop_word = False, stemming=False, trunc_sent=-1, padding_sent=-1):
+def preprocess_text(text, embmgr, labels_ner = None, is_sep_n = False, remove_stop_word = False, stemming=False, trunc_sent=-1, padding_sent=-1):
   # preprocess ner labels
   if labels_ner is not None:
     tokenized_flat_contents = tokenize_text(text)
-    tokenized_flat_contents = [[glovemgr.i2w(glovemgr.w2i(word)) for word in line] for line in tokenized_flat_contents]
+    tokenized_flat_contents = [[embmgr.i2w(embmgr.w2i(word)) for word in line] for line in tokenized_flat_contents]
     tmp_labels_ner = dict()
 
     for y in range(len(labels_ner)):
@@ -37,7 +28,7 @@ def preprocess_text(text, glovemgr, labels_ner = None, is_sep_n = False, remove_
     result = [line if len(line) <= trunc_sent else line[:trunc_sent] for line in result]
 
   # word2id
-  result = [[glovemgr.w2i(word) for word in line] for line in result]
+  result = [[embmgr.w2i(word) for word in line] for line in result]
 
   # padding
   if padding_sent >= 0:

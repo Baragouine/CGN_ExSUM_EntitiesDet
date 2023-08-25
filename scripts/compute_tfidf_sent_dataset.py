@@ -2,8 +2,7 @@
 from sklearn.feature_extraction.text import TfidfVectorizer
 import pandas as pd
 import argparse
-import re
-from nltk.tokenize import LineTokenizer, sent_tokenize, word_tokenize
+from nltk.tokenize import LineTokenizer, sent_tokenize
 
 # %%
 def is_notebook() -> bool:
@@ -55,7 +54,7 @@ for idx in df.index:
     nltk_line_tokenizer = LineTokenizer()
     doc = nltk_line_tokenizer.tokenize(doc)
   else:
-    doc = sent_tokenize(doc)
+    doc = sent_tokenize(doc, language="french")
   # for each sentence compute tfidf
   tfidf_doc = []
   for s in doc:

@@ -2,11 +2,6 @@
 # * preprocessing 1 : https://towardsdatascience.com/nlp-preprocessing-with-nltk-3c04ee00edc0
 # * preprocessing 2 : https://www.nltk.org/api/nltk.tokenize.html
 
-import string
-from nltk.tokenize import LineTokenizer, sent_tokenize, word_tokenize
-from nltk.corpus import stopwords
-from nltk.stem.porter import PorterStemmer
-import nltk
 # Run the below line only the first time of running nltk
 # nltk.download()
 
