@@ -21,3 +21,10 @@ cd HSG_ExSUM_NER
 ```bash
 conda create --name HSG_ExSUM_NER python=3.9
 ```
+
+## Activate environnement
+```bash
+conda activate HSG_ExSUM_NER
+```
+
+
