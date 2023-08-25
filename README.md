@@ -57,6 +57,8 @@ tfidfs computing is only necessary for HeterSUMGraph based models.
 ## Embeddings
 For training you must use french fasttext embeddings, they must have the following path: `data/cc.fr.300.vec`
 
-
+## Training
+  - `01-train_HeterSUMGraph.ipynb`: model for summarization only.
+  - 
 
 
