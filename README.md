@@ -43,5 +43,7 @@ To install nltk data:
   - Run `00-00-scrap_wiki.ipynb` to scrap data.
   - Run `00-01-raw_dataset_to_preprocessed.ipynb` to compute summarization and ner labels.
   - Run `00-02-drop_article_without_body.ipynb` to drop articles without body.
+  - Run `00-03-split_preprocessed_dataset_to_25_high_25_low_0.5.ipynb` to split the previous dataset to three subsets depending of summary/article ratio (Wikipedia-0.5, Wikipedia-high-25, Wikipedia-low-25).
+  - Run  `00-04-split_wiki_datasets_to_train_val_test.ipynb` to split previous datasets to train, val and test set.
   - 
 
