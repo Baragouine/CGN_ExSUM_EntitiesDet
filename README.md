@@ -44,6 +44,11 @@ To install nltk data:
   - Run `00-01-raw_dataset_to_preprocessed.ipynb` to compute summarization and ner labels.
   - Run `00-02-drop_article_without_body.ipynb` to drop articles without body.
   - Run `00-03-split_preprocessed_dataset_to_25_high_25_low_0.5.ipynb` to split the previous dataset to three subsets depending of summary/article ratio (Wikipedia-0.5, Wikipedia-high-25, Wikipedia-low-25).
-  - Run  `00-04-split_wiki_datasets_to_train_val_test.ipynb` to split previous datasets to train, val and test set.
-  - 
+  - Run `00-04-split_wiki_datasets_to_train_val_test.ipynb` to split previous datasets to train, val and test set.
+  - Run ```python scripts/compute_tfidf_dataset.py -input data/wiki_geo_ratio_sc_0.5.json -output data/wiki_geo_ratio_sc_0.5_dataset_tfidf.json``` (compute tfidfs for whole dataset).
+  - Run ```python scripts/compute_tfidf_sent_dataset.py -input data/wiki_geo_ratio_sc_0.5.json -output data/wiki_geo_ratio_sc_0.5_sent_tfidf.json``` (compute tfidfs for each document).
+  - Run ```python scripts/compute_tfidf_dataset.py -input data/wiki_geo_low_25.json -output data/wiki_geo_low_25_dataset_tfidf.json``` (compute tfidfs for whole dataset).
+  - Run ```python scripts/compute_tfidf_sent_dataset.py -input data/wiki_geo_low_25.json -output data/wiki_geo_low_25_sent_tfidf.json``` (compute tfidfs for each document).
+  - Run ```python scripts/compute_tfidf_dataset.py -input data/wiki_geo_high_25.json -output data/wiki_geo_high_25_dataset_tfidf.json``` (compute tfidfs for whole dataset).
+  - Run ```python scripts/compute_tfidf_sent_dataset.py -input data/wiki_geo_high_25.json -output data/wiki_geo_high_25_sent_tfidf.json``` (compute tfidfs for each document).
 
