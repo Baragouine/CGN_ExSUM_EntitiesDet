@@ -27,4 +27,21 @@ conda create --name HSG_ExSUM_NER python=3.9
 conda activate HSG_ExSUM_NER
 ```
 
+## Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+## Install nltk data
+To install nltk data:
+  - Open a python console.
+  - Type ``` import nltk; nltk.download()```.
+  - Download all data.
+  - Close the python console.
+
+## Scrap, preprocessing and split articles
+  - Run `00-00-scrap_wiki.ipynb` to scrap data.
+  - Run `00-01-raw_dataset_to_preprocessed.ipynb` to compute summarization and ner labels.
+  - Run `00-02-drop_article_without_body.ipynb` to drop articles without body.
+  - 
 
