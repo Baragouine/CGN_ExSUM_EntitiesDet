@@ -17,3 +17,7 @@ git clone https://github.com/Baragouine/HSG_ExSUM_NER.git
 cd HSG_ExSUM_NER
 ```
 
+## Create environnement
+```bash
+conda create --name HSG_ExSUM_NER python=3.9
+```
