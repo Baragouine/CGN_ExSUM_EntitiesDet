@@ -12,4 +12,8 @@ The dataset is a part of general geography, architecture town planning and geolo
 git clone https://github.com/Baragouine/HSG_ExSUM_NER.git
 ```
 
+## Enter into the directory
+```bash
+cd HSG_ExSUM_NER
+```
 
