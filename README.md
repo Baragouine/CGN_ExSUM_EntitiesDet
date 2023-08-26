@@ -64,9 +64,9 @@ For training you must use french fasttext embeddings, they must have the followi
 ## Training
   - `01-train_HeterSUMGraph.ipynb`: model for summarization only.
   - `02-train_HeterSUMGraphNER.ipynb`: model for both summarization and named entity recognition.
-  - `03-train_HeterSUMGraphOnlyNER.ipynb`: model for entity recognition.
+  - `03-train_HeterSUMGraphOnlyNER.ipynb`: model for entity recognition only.
   - `04-train_HeterSUMGraphNERPOL.ipynb`: model for both summarization and named entity recognition which also directly use edge attribut for ner task.
-  - `05-train_HeterSUMGraphOnlyNERPOL.ipynb: model for entity recognition which also directly use edge attribut.
+  - `05-train_HeterSUMGraphOnlyNERPOL.ipynb`: model for entity recognition which also directly use edge attribut.
 
 ## Result
 
