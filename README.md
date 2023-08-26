@@ -81,12 +81,12 @@ TODO: put real values
 
 ### Other models on Wikipedia-0.5 (wiki_geo_ratio_sc_0.5) (limited-length ROUGE Recall)
 TODO: put real values
-| dataset | ROUGE-1 | ROUGE-2 | ROUGE-L |  
-|:-:      |:-:      |:-:      |:-:      |  
-|HeterSUMGraphNER||||  
-|HeterSUMGraphOnlyNER||||  
-|HeterSUMGraphNERPOL||||  
-|HeterSUMGraphOnlyNERPOL||||  
+| dataset | ROUGE-1 | ROUGE-2 | ROUGE-L | NER-BCELoss |  
+|:-:      |:-:      |:-:      |:-:      |:-:          |  
+|HeterSUMGraphNER|||||  
+|HeterSUMGraphOnlyNER|||||  
+|HeterSUMGraphNERPOL|||||  
+|HeterSUMGraphOnlyNERPOL|||||  
 
 &ast; Wikipedia-0.5: general geography, architecture town planning and geology French wikipedia articles with len(summary)/len(content) <= 0.5.  
 &ast; Wikipedia-high-25: first 25% of general geography, architecture town planning and geology French wikipedia articles sorted by len(summary)/len(content) descending.  
