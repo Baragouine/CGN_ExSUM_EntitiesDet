@@ -40,6 +40,7 @@ To install nltk data:
   - Close the python console.
 
 ## Scrap, preprocessing and split articles
+preprocessing mean cleaning, labelising, etc. not mean preprocessing before training.
   - Run `00-00-scrap_wiki.ipynb` to scrap data.
   - Run `00-01-raw_dataset_to_preprocessed.ipynb` to compute summarization and ner labels.
   - Run `00-02-drop_article_without_body.ipynb` to drop articles without body.
@@ -64,4 +65,13 @@ For training you must use french fasttext embeddings, they must have the followi
   - `04-train_HeterSUMGraphNERPOL.ipynb`: model for both summarization and named entity recognition which also directly use edge attribut for ner task.
   - `05-train_HeterSUMGraphOnlyNERPOL.ipynb: model for entity recognition which also directly use edge attribut.
 
+## Result
+
+### HeterSUMGraph (GATv2Conv, limited-length ROUGE Recall)
+TODO: put real value
+| dataset | ROUGE-1 | ROUGE-2 | ROUGE-L |  
+|:-:      |:-:      |:-:      |:-:      |  
+| Wikipedia-0.5 |31.4 &plusmn; 0.0|10.1 &plusmn; 0.0|20.0 &plusmn; 0.0|  
+| Wikipedia-high-25 |24.4 &plusmn; 0.0|6.7 &plusmn; 0.0|15.0 &plusmn; 0.0|  
+| Wikipedia-low-25 |32.3 &plusmn; 0.0|12.4 &plusmn; 0.0|21.9 &plusmn; 0.0|  
 
