@@ -68,10 +68,22 @@ For training you must use french fasttext embeddings, they must have the followi
 ## Result
 
 ### HeterSUMGraph (GATv2Conv, limited-length ROUGE Recall)
-TODO: put real value
+TODO: put real values
 | dataset | ROUGE-1 | ROUGE-2 | ROUGE-L |  
 |:-:      |:-:      |:-:      |:-:      |  
 | Wikipedia-0.5 |31.4 &plusmn; 0.0|10.1 &plusmn; 0.0|20.0 &plusmn; 0.0|  
 | Wikipedia-high-25 |24.4 &plusmn; 0.0|6.7 &plusmn; 0.0|15.0 &plusmn; 0.0|  
 | Wikipedia-low-25 |32.3 &plusmn; 0.0|12.4 &plusmn; 0.0|21.9 &plusmn; 0.0|  
 
+### Other models on Wikipedia-0.5 (wiki_geo_ratio_sc_0.5) (limited-length ROUGE Recall)
+TODO: put real values
+| dataset | ROUGE-1 | ROUGE-2 | ROUGE-L |  
+|:-:      |:-:      |:-:      |:-:      |  
+|HeterSUMGraphNER||||  
+|HeterSUMGraphOnlyNER||||  
+|HeterSUMGraphNERPOL||||  
+|HeterSUMGraphOnlyNERPOL||||  
+
+&ast; Wikipedia-0.5: general geography, architecture town planning and geology French wikipedia articles with len(summary)/len(content) <= 0.5.  
+&ast; Wikipedia-high-25: first 25% of general geography, architecture town planning and geology French wikipedia articles sorted by len(summary)/len(content) descending.  
+&ast; Wikipedia-low-25: first 25% of general geography, architecture town planning and geology French wikipedia articles sorted by len(summary)/len(content) ascending.  
