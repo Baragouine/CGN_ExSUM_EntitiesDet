@@ -5,7 +5,7 @@
 import string
 from nltk.tokenize import LineTokenizer, sent_tokenize, word_tokenize
 from nltk.corpus import stopwords
-from nltk.stem.porter import FrenchStemmer
+from nltk.stem.snowball import FrenchStemmer
 import nltk
 # Run the below line only the first time of running nltk
 # nltk.download()
