@@ -1,5 +1,6 @@
 # HSG_ExSUM_NER (extractive summarization and named entity recognition)
 This repository presents and compares HeterSUMGraph and variants doing extractive summarization, named entity recognition or both.  
+This repository also present the influence of article length on performence.  
 HeterSUMGraph and variants use GATv2Conv (from torch_geometric).  
 
 HeterSUMGraph using GATv2Conv is the best variant of HeterSUMGraph, better than original HeterSUMGraph on NYT50, for more information
