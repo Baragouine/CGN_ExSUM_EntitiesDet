@@ -81,7 +81,7 @@ TODO: put real values
 
 ### Other models on Wikipedia-0.5 (wiki_geo_ratio_sc_0.5) (limited-length ROUGE Recall)
 TODO: put real values
-| dataset | ROUGE-1 | ROUGE-2 | ROUGE-L | NER-BCELoss |  
+| model | ROUGE-1 | ROUGE-2 | ROUGE-L | NER-BCELoss |  
 |:-:      |:-:      |:-:      |:-:      |:-:          |  
 |HeterSUMGraphNER|||||  
 |HeterSUMGraphOnlyNER|||||  
