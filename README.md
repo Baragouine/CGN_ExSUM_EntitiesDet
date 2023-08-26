@@ -59,6 +59,7 @@ For training you must use french fasttext embeddings, they must have the followi
 
 ## Training
   - `01-train_HeterSUMGraph.ipynb`: model for summarization only.
+  - `02-train_HeterSUMGraphNER.ipynb`: model for both summarization and named entity recognition.
   - 
 
 
