@@ -78,7 +78,7 @@ class GraphDataset:#(Dataset):
 def create_graph_dataset(df, tfidfs_sent, embmgr, word_blacklist = [], remove_unkn_words = False, self_loop=False, doc_column_name="docs", labels_sum_column_name="labels_sum", labels_ner_column_name=None, is_sep_n=False, remove_stop_word = True, stemming=True, trunc_sent=-1, padding_sent=-1, trunc_doc=-1):
   res = []
 
-  df = preprocess_df(df=df, glovemgr=embmgr, doc_column_name=doc_column_name, labels_sum_column_name=labels_sum_column_name, labels_ner_column_name=labels_ner_column_name, is_sep_n = is_sep_n, remove_stop_word = remove_stop_word, stemming=stemming, trunc_sent=trunc_sent, padding_sent=padding_sent, trunc_doc=trunc_doc)
+  df = preprocess_df(df=df, embmgr=embmgr, doc_column_name=doc_column_name, labels_sum_column_name=labels_sum_column_name, labels_ner_column_name=labels_ner_column_name, is_sep_n = is_sep_n, remove_stop_word = remove_stop_word, stemming=stemming, trunc_sent=trunc_sent, padding_sent=padding_sent, trunc_doc=trunc_doc)
   
   max_sent_len = max([len(s) for t in df for s in t["docs"]])
 
