@@ -1,7 +1,7 @@
 # HSG_ExSUM_NER (extractive summarization and named entity recognition)
 This repository presents and compares HeterSUMGraph and variants doing extractive summarization, named entity recognition or both.  
   
-This repository also present the influence of the summary in relation to the document on performance.  
+This repository also present the influence of the summary/document ratio on performance.  
   
 HeterSUMGraph and variants use GATv2Conv (from torch_geometric).  
 
