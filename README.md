@@ -40,7 +40,7 @@ To install nltk data:
   - Close the python console.
 
 ## Scrap, preprocessing and split articles
-preprocessing mean cleaning, labelising, etc. not mean preprocessing before training.
+preprocessing mean cleaning, labeling, etc. not mean preprocessing before training.
   - Run `00-00-scrap_wiki.ipynb` to scrap data.
   - Run `00-01-raw_dataset_to_preprocessed.ipynb` to compute summarization and ner labels.
   - Run `00-02-drop_article_without_body.ipynb` to drop articles without body.
