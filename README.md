@@ -79,7 +79,7 @@ Run one of the notebooks below to train and evaluate the associated model:
 | Wikipedia-low-25 |33.1 &plusmn; 0.0|13.3 &plusmn; 0.0|22.9 &plusmn; 0.0|  
 
 ### Other models on Wikipedia-0.5 (wiki_geo_ratio_sc_0.5) (limited-length ROUGE Recall)
-| model | ROUGE-1 | ROUGE-2 | ROUGE-L | NER-BCELoss |  
+| model | ROUGE-1 | ROUGE-2 | ROUGE-L | ACCURACY |  
 |:-:      |:-:      |:-:      |:-:      |:-:          |  
 |HeterSUMGraphNER|31.5 &plusmn; 0.0|10.0 &plusmn; 0.0|20.0|0.932|  
 |HeterSUMGraphOnlyNER|N/A|N/A|N/A|**0.935**|  
