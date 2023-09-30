@@ -72,21 +72,19 @@ Run one of the notebooks below to train and evaluate the associated model:
 ## Result
 
 ### HeterSUMGraph (GATv2Conv, limited-length ROUGE Recall)
-TODO: put real values
 | dataset | ROUGE-1 | ROUGE-2 | ROUGE-L |  
 |:-:      |:-:      |:-:      |:-:      |  
-| Wikipedia-0.5 |31.4 &plusmn; 0.0|10.1 &plusmn; 0.0|20.0 &plusmn; 0.0|  
-| Wikipedia-high-25 |24.4 &plusmn; 0.0|6.7 &plusmn; 0.0|15.0 &plusmn; 0.0|  
-| Wikipedia-low-25 |32.3 &plusmn; 0.0|12.4 &plusmn; 0.0|21.9 &plusmn; 0.0|  
+| Wikipedia-0.5 |29.1 &plusmn; 0.0|8.6 &plusmn; 0.0|18.9 &plusmn; 0.0|  
+| Wikipedia-high-25 |23.8 &plusmn; 0.0|6.8 &plusmn; 0.0|14.9 &plusmn; 0.0|  
+| Wikipedia-low-25 |33.1 &plusmn; 0.0|13.3 &plusmn; 0.0|22.9 &plusmn; 0.0|  
 
 ### Other models on Wikipedia-0.5 (wiki_geo_ratio_sc_0.5) (limited-length ROUGE Recall)
-TODO: put real values
-| model | ROUGE-1 | ROUGE-2 | ROUGE-L | NER-BCELoss |  
+| model | ROUGE-1 | ROUGE-2 | ROUGE-L | ACCURACY |  
 |:-:      |:-:      |:-:      |:-:      |:-:          |  
-|HeterSUMGraphNER|||||  
-|HeterSUMGraphOnlyNER|||||  
-|HeterSUMGraphNERPOL|||||  
-|HeterSUMGraphOnlyNERPOL|||||  
+|HeterSUMGraphNER|31.5 &plusmn; 0.0|10.0 &plusmn; 0.0|20.0|0.932|  
+|HeterSUMGraphOnlyNER|N/A|N/A|N/A|**0.935**|  
+|HeterSUMGraphNERPOL|31.5 &plusmn; 0.0|10.0  &plusmn; 0.0|**20.01 &plusmn; 0.0**|0.923 &plusmn; 0.0|  
+|HeterSUMGraphOnlyNERPOL|N/A|N/A|N/A|0.924|  
 
 &ast; Wikipedia-0.5: general geography, architecture town planning and geology French wikipedia articles with len(summary)/len(content) <= 0.5.  
 &ast; Wikipedia-high-25: first 25% of general geography, architecture town planning and geology French wikipedia articles sorted by len(summary)/len(content) descending.  
