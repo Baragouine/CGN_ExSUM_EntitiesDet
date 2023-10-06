@@ -10,6 +10,8 @@ see: [https://github.com/Baragouine/HeterSUMGraph](https://github.com/Baragouine
 
 The dataset is a part of general geography, architecture town planning and geology French wikipedia articles.
 
+Warning: this code uses a French Tokenizer.
+
 ## Clone project
 ```bash
 git clone https://github.com/Baragouine/HSG_ExSUM_NER.git
