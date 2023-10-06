@@ -64,7 +64,7 @@ tfidfs computing is only necessary for HeterSUMGraph based models.
 For training you must use french fasttext embeddings, they must have the following path: `data/cc.fr.300.vec`
 
 ## Training
-Run one of the notebooks below to train and evaluate the associated model:  
+Run one of the \*train\* notebooks to train and evaluate the associated model:
 The names of notebooks containing HeterSUMGraph mean that they can be used to train HeterSUMGraph. If the name contains GAT, it means that the notebook trains the original version of HeterSUMGraph. If the name contains GATv2, it means that the GAT layer has been replaced by GATv2. If it contains NER without the "Only", it means that the notebook performs summary and named entity recognition. If it contains OnlyNER, it means that the model only performs named entity recognition; if the name contains POL, it means that edge features are taken into account for the NER; finally, if instead of HeterSUMGraph we have HSGRNN, it means that the model is a combination of HeterSUMGraph and SummaRuNNer. 
 
 ## Result
