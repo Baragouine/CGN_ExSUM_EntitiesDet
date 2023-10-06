@@ -63,11 +63,7 @@ For training you must use french fasttext embeddings, they must have the followi
 
 ## Training
 Run one of the notebooks below to train and evaluate the associated model:  
-  - `01-train_HeterSUMGraph.ipynb`: model for summarization only.
-  - `02-train_HeterSUMGraphNER.ipynb`: model for both summarization and named entity recognition.
-  - `03-train_HeterSUMGraphOnlyNER.ipynb`: model for entity recognition only.
-  - `04-train_HeterSUMGraphNERPOL.ipynb`: model for both summarization and named entity recognition which also directly use edge attribut for ner task.
-  - `05-train_HeterSUMGraphOnlyNERPOL.ipynb`: model for entity recognition which also directly use edge attribut.
+The names of notebooks containing HeterSUMGraph mean that they can be used to train HeterSUMGraph. If the name contains GAT, it means that the notebook trains the original version of HeterSUMGraph. If the name contains GATv2, it means that the GAT layer has been replaced by GATv2. If it contains NER without the "Only", it means that the notebook performs summary and named entity recognition. If it contains OnlyNER, it means that the model only performs named entity recognition; if the name contains POL, it means that edge features are taken into account for the NER; finally, if instead of HeterSUMGraph we have HSGRNN, it means that the model is a combination of HeterSUMGraph and SummaRuNNer. 
 
 ## Result
 
