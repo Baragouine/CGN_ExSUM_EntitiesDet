@@ -79,12 +79,19 @@ Run one of the notebooks below to train and evaluate the associated model:
 | Wikipedia-low-25 |33.1 &plusmn; 0.0|13.3 &plusmn; 0.0|22.9 &plusmn; 0.0|  
 
 ### Other models on Wikipedia-0.5 (wiki_geo_ratio_sc_0.5) (limited-length ROUGE Recall)
-| model | ROUGE-1 | ROUGE-2 | ROUGE-L | ACCURACY |  
+| model | ROUGE-1 | ROUGE-2 | ROUGE-L | BCELoss |  
 |:-:      |:-:      |:-:      |:-:      |:-:          |  
-|HeterSUMGraphNER|31.5 &plusmn; 0.0|10.0 &plusmn; 0.0|20.0|0.932|  
-|HeterSUMGraphOnlyNER|N/A|N/A|N/A|**0.935**|  
-|HeterSUMGraphNERPOL|31.5 &plusmn; 0.0|10.0  &plusmn; 0.0|**20.01 &plusmn; 0.0**|0.923 &plusmn; 0.0|  
-|HeterSUMGraphOnlyNERPOL|N/A|N/A|N/A|0.924|  
+| HeterSUMGraph\_GAT         | 31.11 $\pm$ 0.85    | 9.79 $\pm$ 0.73     | 19.59 $\pm$ 0.58    | N/A               |
+| HeterSUMGraphNER\_GAT      | 31.70 $\pm$ 0.12    | 10.22 $\pm$ 0.15    | 20.02 $\pm$ 0.12    | 0.926+/-0.000     |
+| HeterSUMGraphOnlyNER\_GAT  | N/A                 | N/A                 | N/A                 | 0.929+/-0.001     |
+| HeterSUMGraphNERPOL\_GAT   | N/A                 | N/A                 | N/A                 | N/A               |
+| HeterSUMGraph\_GATv2       | 31.56 $\pm$ 0.29    | 10.12 $\pm$ 0.30    | 19.91 $\pm$ 0.28    | N/A               |
+| HeterSUMGraphNER\_GATv2    | 31.66 $\pm$ 0.13    | 10.22 $\pm$ 0.09    | 20.01 $\pm$ 0.10    | 0.925+/-0.001     |
+| HeterSUMGraphOnlyNER\_GATv2| N/A                 | N/A                 | N/A                 | 0.930+/-0.001     |
+| HSGRNN\_GATv2              | 30.86 $\pm$ 0.00    | 9.29 $\pm$ 0.00     | 19.59 $\pm$ 0.00    | N/A               |
+| HSGRNNNER\_GATv2           | 31.52 $\pm$ 0.10    | 10.06 $\pm$ 0.09    | 19.97 $\pm$ 0.05    | 0.926+/-0.000     |
+| HSGRNNOnlyNER\_GATv2       | N/A                 | N/A                 | N/A                 | 0.930+/-0.001     |
+ 
 
 &ast; Wikipedia-0.5: general geography, architecture town planning and geology French wikipedia articles with len(summary)/len(content) <= 0.5.  
 &ast; Wikipedia-high-25: first 25% of general geography, architecture town planning and geology French wikipedia articles sorted by len(summary)/len(content) descending.  
