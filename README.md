@@ -69,6 +69,9 @@ The names of notebooks containing HeterSUMGraph mean that they can be used to tr
 
 ## Result
 
+### All XPs scores
+see: https://www.overleaf.com/read/gbfxvfvykxsc#77a14f  
+
 ### HeterSUMGraph (GATv2Conv, limited-length ROUGE Recall)
 | dataset | ROUGE-1 | ROUGE-2 | ROUGE-L |  
 |:-:      |:-:      |:-:      |:-:      |  
